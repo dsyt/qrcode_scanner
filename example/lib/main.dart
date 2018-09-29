@@ -18,6 +18,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     initPlatformState();
+    QrcodeScanner.scanQRCode(2);
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
