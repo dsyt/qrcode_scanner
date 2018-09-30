@@ -10,4 +10,13 @@ class QrcodeScanner {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
+
+  static Future<String> scanQRCode(int type) async {
+    final Map<String, Object> argument = Map();
+    argument['scanType'] = type;
+    argument['handlePermissions'] = true;
+    argument['executeAfterPermissionGranted'] = true;
+    return await _channel.invokeMethod("scanQRCode", argument);
+  }
+
 }
